@@ -236,8 +236,8 @@
           margin-right: 15px;
         }
         &.active {
-          background-color: #9d7dbd;
-          border-color: #9d7dbd;
+          background-color: #6f7db1;
+          border-color: #6f7db1;
         }
       }
     }

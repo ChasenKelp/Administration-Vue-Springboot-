@@ -3,13 +3,13 @@
     <el-row>
       <el-col>
         <blockquote style="font-size: 14px">
-          清华大学出版社网址
+          重庆大学软件学院网址
           <br/>
           <el-link
-            href="http://www.tup.tsinghua.edu.cn/index.html"
+            href="http://www.cse.cqu.edu.cn/"
             type="primary"
             target="_blank"
-            >http://www.tup.tsinghua.edu.cn/index.html</el-link>
+            >http://www.cse.cqu.edu.cn/</el-link>
         </blockquote>
       </el-col>
     </el-row>
@@ -60,6 +60,19 @@
           </el-col>
         </el-row>
       </el-col>
+      <el-col :lg="12" style="padding-left: 50px">
+        <h4>工作日历</h4>
+        <ul>
+          <el-calendar>
+            <template #date-cell="{ data }">
+              <p :class="data.isSelected ? 'is-selected' : ''">
+                {{ data.day.split('-').slice(1).join('-') }}
+                {{ data.isSelected ? '*' : '' }}
+              </p>
+            </template>
+          </el-calendar>
+        </ul>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -77,6 +90,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.is-selected {
+  color: #2976c2b8;
+}
 .home {
   blockquote {
     padding: 10px 20px;

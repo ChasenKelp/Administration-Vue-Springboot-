@@ -58,7 +58,7 @@ import Gitbutton from "@/components/Gitbutton/index.vue";
 export default {
   name: "Login",
   components: {
-    Gitbutton // 注册按钮组件
+    Gitbutton 
   },
   data() {
     return {
