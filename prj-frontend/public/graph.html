@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chart.js Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .chart-container {
+      display: inline-block;
+      margin-right: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: white;
+    }
+    body {
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      --s: 37px; /* 控制大小 */
+      --c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;
+      --g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
+      --g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
+      --g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
+      background: var(--g1), var(--g1) var(--s) calc(1.73 * var(--s)), var(--g2),
+        var(--g2) var(--s) calc(1.73 * var(--s)), var(--g3) var(--s) 0,
+        var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
+      background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
+    }
+  </style>
+</head>
+
+<body>
+  <h1>公司情况预览页</h1>
+
+  <!-- 饼状图容器 -->
+  <div class="chart-container">
+    <canvas id="pieChart"></canvas>
+  </div>
+
+  <!-- 柱状图容器 -->
+  <div class="chart-container">
+    <canvas id="barChart"></canvas>
+  </div>
+
+  <!-- 折线图容器 -->
+  <div class="chart-container">
+    <canvas id="lineChart"></canvas>
+  </div>
+
+  <script>
+    
+    // 饼状图数据
+    var pieData = {
+      labels: ['研发部', '开发部', '人事部', '市场部'],
+      datasets: [{
+        data: [7, 7, 3, 5],
+        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#56ffce']
+      }]
+    };
+
+    // 柱状图数据
+    var barData = {
+      labels: ['January', 'February', 'March'], 
+      datasets: [{
+        label: 'Dataset 1',
+        data: [10, 20, 30],
+        backgroundColor: '#36a2eb'
+      }]
+    };
+
+    // 折线图数据
+    var lineData = {
+      labels: ['January', 'February', 'March'],
+      datasets: [{
+        label: 'Dataset 1',
+        data: [10, 20, 30],
+        borderColor: '#ff6384',
+        fill: false
+      }]
+    };
+
+    // 创建饼状图
+    var pieCtx = document.getElementById('pieChart').getContext('2d');
+    new Chart(pieCtx, {
+      type: 'pie',
+      data: pieData
+    });
+
+    // 创建柱状图
+    var barCtx = document.getElementById('barChart').getContext('2d');
+    new Chart(barCtx, {
+      type: 'bar',
+      data: barData
+    });
+
+    // 创建折线图
+    var lineCtx = document.getElementById('lineChart').getContext('2d');
+    new Chart(lineCtx, {
+      type: 'line',
+      data: lineData
+    });
+  </script>
+</body>
+
+</html>

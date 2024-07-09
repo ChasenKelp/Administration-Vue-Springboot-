@@ -3,10 +3,10 @@ package com.prj.framework.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
@@ -22,6 +22,9 @@ public class ResourcesConfig implements WebMvcConfigurer
     {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
+
+        config.addAllowedHeader(HttpHeaders.CONTENT_TYPE);
+        config.addExposedHeader("X-Content-Type-Options");
         // 设置访问源地址
         config.addAllowedOriginPattern("*");
         // 设置访问源请求头

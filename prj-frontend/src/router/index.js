@@ -5,6 +5,19 @@ Vue.use(Router)
 import Layout from '@/layout'
 // 公共路由
 export const constantRoutes = [
+  {
+    path: '',
+    component: Layout,
+    redirect: '/index',
+    children: [
+      {
+        path: '/index',
+        component: (resolve) => require(['@/views/index'], resolve),
+        name: 'Index',
+        meta: { title: '首页', isFixed: true }
+      }
+    ]
+  },
    {
       path: '',
       component: Layout,
@@ -80,19 +93,7 @@ export const constantRoutes = [
     component: (resolve) => require(['@/views/login'], resolve),
     hidden: true
   },
-  {
-    path: '/index',
-    component: Layout,
-    redirect: '/index',
-    children: [
-      {
-        path: '/index',
-        component: (resolve) => require(['@/views/index'], resolve),
-        name: 'Index',
-        meta: { title: '首页', isFixed: true }
-      }
-    ]
-  }
+  
 ]
 
 export default new Router({

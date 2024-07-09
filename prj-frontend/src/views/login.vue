@@ -43,6 +43,7 @@
           <span v-else>登 录 中...</span>
         </el-button>
       </el-form-item>
+      <a href="graph.html" style="color: white; ">游客预览通道</a>
       <div style="position: fixed; bottom: 20px; right: 20px;">
         <Gitbutton @click="handleClick" />
       </div>
@@ -89,7 +90,7 @@ export default {
   },
   methods: {
     handleClick() {
-      window.location.href = "https://github.com/ChasenKelp";
+      window.open('https://github.com/ChasenKelp', '_blank') ;
     },
     getCode() {
       getCodeImg().then(res => {

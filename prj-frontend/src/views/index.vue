@@ -11,6 +11,11 @@
             target="_blank"
             >http://www.cse.cqu.edu.cn/</el-link>
         </blockquote>
+        <el-carousel :interval="4000" type="card" height="250px">
+          <el-carousel-item  v-for="(item, index) in imageList" :key="index">
+            <img :src="item" alt="Carousel Image">
+          </el-carousel-item>
+        </el-carousel>
       </el-col>
     </el-row>
     <el-row>
@@ -81,12 +86,22 @@
 export default {
   name: "Index",
 
+  data() {
+  return {
+    imageList: [
+      require('@/assets/image1.jpg'),
+      require('@/assets/image2.jpg'),
+      require('@/assets/image3.jpg')
+    ]
+  };
+},
   methods: {
     goTarget(href) {
       window.open(href, "_blank");
     },
   },
 };
+
 </script>
 
 <style scoped lang="scss">
@@ -116,8 +131,21 @@ export default {
   }
 
   color: #675c6b;
+}
+.el-carousel__item h3 {
+  color: #475669;
+  opacity: 0.75;
+  line-height: 200px;
+  margin: 0;
+  text-align: center;
+}
 
+.el-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
 
+.el-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
 }
 </style>
 
